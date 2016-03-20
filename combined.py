@@ -24,6 +24,11 @@
 import pygame, time
 from pygame.locals import *
 
+from SimpleCV import *
+cam = Camera()
+disp = Display()
+
+
 pygame.init()
 screen = pygame.display.set_mode((640, 480))
 #pygame.display.set_caption('Pygame Keyboard Test')
@@ -140,26 +145,29 @@ while True:
 	ycoord=ypos - 16*(ypos//16)
 	set_pixel(xcoord,ycoord,4)
 	refresh()
-	#for event in pygame.event.get():
-		#if (event.type == KEYDOWN):
-			#keystatus=pygame.key.get_pressed()
-			#if (keystatus[pygame.K_UP]):ypos+=1
-			#if (keystatus[pygame.K_DOWN]):ypos-=1
-			#if (keystatus[pygame.K_RIGHT]):xpos+=1
-			#if (keystatus[pygame.K_LEFT]):xpos-=1
-			#if (keystatus[pygame.K_x]):exit()
+	for event in pygame.event.get():
+		if (event.type == KEYDOWN):
+			keystatus=pygame.key.get_pressed()
+			if (keystatus[pygame.K_UP]):ypos+=1
+			if (keystatus[pygame.K_DOWN]):ypos-=1
+			if (keystatus[pygame.K_RIGHT]):xpos+=1
+			if (keystatus[pygame.K_LEFT]):xpos-=1
+			if (keystatus[pygame.K_x]):exit()
 			
-			#if (xpos<0):xpos=0
-			#if (xpos>31):xpos=31
+			if (xpos<0):xpos=0
+			if (xpos>31):xpos=31
 			
-			#if (ypos<0):ypos=0
-			#if (ypos>31):ypos=31
+			if (ypos<0):ypos=0
+			if (ypos>31):ypos=31
 			
-			#xpos = xpos % 32
-			#ypos = ypos % 32
+			xpos = xpos % 32
+			ypos = ypos % 32
 			
-			#time.sleep(0.03)
-			#print "x is " + str(xpos) + " y is " + str(ypos)
-			#print "xcoord is " + str(xcoord) + " ycoord is " + str(ycoord)
+			time.sleep(0.03)
+			print "x is " + str(xpos) + " y is " + str(ypos)
+			print "xcoord is " + str(xcoord) + " ycoord is " + str(ycoord)
+			#img = cam.getImage()
+			#img.save(disp)
+			
 
 

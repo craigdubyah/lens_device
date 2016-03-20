@@ -1,33 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-#  controlLED.py
-#  
-#  Copyright 2016  <pi@raspberrypi>
-#  
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 2 of the License, or
-#  (at your option) any later version.
-#  
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#  
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
-#  
-#  
-import pygame, time
-from pygame.locals import *
 
-pygame.init()
-screen = pygame.display.set_mode((640, 480))
-#pygame.display.set_caption('Pygame Keyboard Test')
-#pygame.mouse.set_visible(0)
 xpos=15
 ypos=15
 
@@ -127,12 +100,6 @@ def fill_rectangle(x1, y1, x2, y2, color):
 def set_pixel(x, y, color):
     screen[y][x] = color
 
-#set_pixel(10,1,1) 
-#set_pixel(10,2,2)
-#set_pixel(10,3,3)
-#fill_rectangle(0, 0, 12, 12, 1)
-#fill_rectangle(20, 4, 30, 15, 2)
-#fill_rectangle(15, 0, 19, 7, 7)
  
 while True:
 	fill_rectangle(0,0,64,16,0)
@@ -140,26 +107,4 @@ while True:
 	ycoord=ypos - 16*(ypos//16)
 	set_pixel(xcoord,ycoord,4)
 	refresh()
-	#for event in pygame.event.get():
-		#if (event.type == KEYDOWN):
-			#keystatus=pygame.key.get_pressed()
-			#if (keystatus[pygame.K_UP]):ypos+=1
-			#if (keystatus[pygame.K_DOWN]):ypos-=1
-			#if (keystatus[pygame.K_RIGHT]):xpos+=1
-			#if (keystatus[pygame.K_LEFT]):xpos-=1
-			#if (keystatus[pygame.K_x]):exit()
-			
-			#if (xpos<0):xpos=0
-			#if (xpos>31):xpos=31
-			
-			#if (ypos<0):ypos=0
-			#if (ypos>31):ypos=31
-			
-			#xpos = xpos % 32
-			#ypos = ypos % 32
-			
-			#time.sleep(0.03)
-			#print "x is " + str(xpos) + " y is " + str(ypos)
-			#print "xcoord is " + str(xcoord) + " ycoord is " + str(ycoord)
-
 
